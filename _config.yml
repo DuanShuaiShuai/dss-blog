@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
+title: 个人博客-段帅帅
+subtitle: 'HTML-WEB-JS-NODE-个人博客_段帅帅'
 description: ''
-keywords:
-author: John Doe
+keywords: 'HTML-WEB-JS-NODE-个人博客_段帅帅'
+author: Duan Shuaishuai
 language: en
 timezone: ''
 
@@ -106,3 +106,21 @@ deploy:
   type: git
   reposity: https://github.com/DuanShuaiShuai/dss-blog.git
   branch: master
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true
