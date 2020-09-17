@@ -1,26 +1,6 @@
 ---
 title: Linux 常用命令总结
 ---
-### 使用
-
-``` bash 
-# yum 包管理工具
-lsb_release -a  # 查看linux内核/硬件资源
-# Distributor ID: CentOS
-# Description:    CentOS Linux release 7.6.1810 (Core)
-# Release:        7.6.1810
-# Codename:       Core
-uname -a 
-# Linux VM_0_7_centos 3.10.0-1062.9.1.el7.x86_64 #1 SMP Fri Dec 6 15:49:49 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
- 
-df -Th # 查看磁盘的使用情况
-cd / #根目录
-
-top # 查看运行的进程
-```
-
-
-
 ## 文档型 文件相关命令
 - ls
 共显示了七列信息，从左至右依次为：权限、文件数、归属用户、归属群组、文件大小、创建日期、文件名称
@@ -74,8 +54,23 @@ top # 查看运行的进程
 
 ## 硬件型 磁盘/进程/服务/网络
 - service sshd status  查看ssh服务
+- systemctl status docker  查看docker服务
+- systemctl start docker  开启docker服务
 - service sshd restart/start 重启/start
 - service sshd stop    关闭
+- top #查看运行的进程
+```bash
+    # yum 包管理工具
+    lsb_release -a  # 查看linux内核/硬件资源
+    # Distributor ID: CentOS
+    # Description:    CentOS Linux release 7.6.1810 (Core)
+    # Release:        7.6.1810
+    # Codename:       Core
+    uname -a 
+    # Linux VM_0_7_centos 3.10.0-1062.9.1.el7.x86_64 #1 SMP Fri Dec 6 15:49:49 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+    df -Th # 查看磁盘的使用情况
+    cd / #根目录
+```
 
 ## 功能型 压缩/解压/下载/远程
 - wget  下载
