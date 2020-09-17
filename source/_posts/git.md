@@ -39,8 +39,13 @@ git remote set-url origin xxxxx #当代码库远程迁移后，修改本地代�
     - git status 
 - commit 
     - git branch 
+    - git push :branch  删除远程分支
     - git merge 
     - git diff 
     - git remote 
     - git rebase 
     - git reset 
+    - git tag
+        - git tag v1.0.0
+        - git tag -d v1.0.0  删除本地tag
+        - git push :refs/tags/v1.0.0  删除远程tag
