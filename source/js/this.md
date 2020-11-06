@@ -52,6 +52,7 @@ fucn();
 
 
 
+
 ## 3. 函数的调用模式
 
 函数的 5 中调用模式( ES3 时代 函数有 4 中调用模式, ES5 引入了 bind, 所以 函数有 5 中调用模式 )
@@ -197,6 +198,48 @@ fucn();
   $('a')
 ```
 
+## 4. this丢失问题
+- 其实多数情况下，是不会发生this绑定丢失的，只有一种情况下会丢失，函数没有执行，当做值传递了。不管是赋值操作，还是当做回调函数的参数传递。
+```js
+//demo1
+function foo() {
+    console.log( this.a );
+}
+ 
+var obj = {
+    a: 2,
+    foo: foo
+};
+ 
+var bar = obj.foo; // function reference/alias!
+ 
+var a = "oops, global"; // `a` also property on global object
+ 
+bar(); // "oops, global"
+// 很容易看到，var bar = obj.foo; obj.foo并没有执行，而是直接赋值给了bar，所以在bar调用时，不存在任何上下文执行环境，就应用了默认绑定，非严格模式下，this绑定到window，而严格模式下，绑定到undefined。
+
+
+//demo2
+function foo() {
+    console.log( this.a );
+}
+ 
+function doFoo(fn) {
+    // `fn` is just another reference to `foo`
+ 
+    fn(); // <-- call-site!
+}
+ 
+var obj = {
+    a: 2,
+    foo: foo
+};
+ 
+var a = "oops, global"; // `a` also property on global object
+ 
+doFoo( obj.foo ); // "oops, global"
+// 　　在执行doFoo()函数时，obj.foo是当做参数传递的，并没有发生函数执行的过程，向上查找，obj.foo 其实就等于 foo，所以在doFoo内部调用的时候，依然是默认绑定规则。
+```
 上下文语法
 1. 函数名.call( 上下文, 参数1, 参数2, ... )     可以有任意个参数
 2. 函数名.apply( 上下文, [ 参数, ... ] )        最多两个参数
